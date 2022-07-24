@@ -37,11 +37,11 @@ features                                  :
 
   - title                                 : Don't listen alone!
     description                           : Here you can chat with people who are listening to the same songs as you. It's like having a private concert with your friends or meeting strangers who love the same song as you.
-    fontawesome_icon_name                 : message
+    fontawesome_icon_name                 : comment-dots
     
   - title                                 : Playlist generator
     description                           : MeloPal comes with AI-powered music discovery features that help you create personalized playlists based on your interests. It is a fun and easy way to find new songs, create playlists and share them with friends.
-    fontawesome_icon_name                 : list-music
+    fontawesome_icon_name                 : music
 
   - title                                 : Get to know YOU
     description                           : See reports of your top artists, songs and genres in the app. MeloPal also compiles monthly playlists for you based on your music preferences and lets you easily share your findings with friends.
