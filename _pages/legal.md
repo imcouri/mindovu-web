@@ -8,7 +8,7 @@ include_in_header: true
 ## Privacy Policy
 We respect your privacy and are committed to protecting it through our compliance with this privacy policy (“Policy”). This Policy describes the types of information we may collect from you or that you may provide (“Personal Information”) in the “MeloPal” mobile application (“Mobile Application” or “Service”) and any of its...
 
-#### [Read More](legal/privacy-policy.html)
+#### [Read More](privacy-policy.html)
 <br>
 
 ## Terms of Service
