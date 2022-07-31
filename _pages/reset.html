@@ -145,24 +145,102 @@
             content: "\f023"
             }
 
+            #error-box{
+                display: none;
+            }
+
 
         </style>
+        <script>
+
+            function onPageLoaded(){
+               
+                var queryString = window.location.search;
+                var urlParams = new URLSearchParams(queryString);
+                var error = urlParams.get('error')
+                if(error != null){
+                    document.getElementById("error-box").style.display = "block";
+                    document.getElementById("error-box").innerHTML = error;
+                }
+            }
+            
+            function checkPasswords(){
+                var password = document.getElementById("password").value;
+                var confirmPassword = document.getElementById("confirmPassword").value;
+                if(password != confirmPassword){
+                    return false;
+                }
+                return true;
+            }
+
+            
+
+            function onMeloPalError(error){
+                window.location.replace('reset.html?access_token='+  new URLSearchParams(window.location.search).get('access_token') +'&error=' + error);
+            }
+
+            function onResetPressed(){
+                var passwordsMatch = checkPasswords();
+                var validatePassword = document.getElementById("password").value.length > 8;
+                if(passwordsMatch){
+                    if(validatePassword){
+                        resetPassword();
+                    }
+                    else{
+                        onMeloPalError("Password must be at least 8 characters long");
+                    }
+                }else{
+                    onMeloPalError("Passwords do not match");
+                }
+            }
+
+            function resetPassword(){
+                fetch("https://spotily-server-twika.ondigitalocean.app/resetPassword",{
+                    method : 'post',
+                    body : {
+                        'token' :  new URLSearchParams(window.location.search).get('access_token'),
+                        'password' : document.getElementById("password").value
+                    }
+                })
+                .then(response => {
+                    // indicates whether the response is successful (status code 200-299) or not
+                    if (!response.ok) {
+                    throw new Error(`Request failed with status ${reponse.status}`)
+                    }
+                    return response.json()
+                })
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => console.log(error))
+            }
+
+            
+
+                
+
+        </script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body onload="onPageLoaded()">
         <div class="container">
+            <div id="error-box" class="alert alert-danger" role="alert"></div>
             <div class="card">
                   <h1 class="card-title">Reset your password</h1>
                   <small class="card-subtitle">Enter your new password + confirmation to conitnue</small>
                   <form class="card-form">
                       <label for="password">Password</label>
                       <div class="card-input-container">
-                          <input type="text" placeholder="Enter your password" id="username">
+                          <input type="text" placeholder="Enter your password" id="password">
                       </div>
                       <label for="password">Confirm Password</label>
                       <div class="card-input-container">
-                          <input type="password" placeholder="Confirm your password" id="password">
+                          <input type="password" placeholder="Confirm your password" id="confirmPassword">
                       </div>
-                      <button class="card-button">Reset Password</button>
+                      <button class="card-button" onclick="onResetPressed()" type="button">Reset Password</button>
                   </form>
               </div>
           </div>
