@@ -195,12 +195,14 @@
             }
 
             function resetPassword(){
+
+                let formData = new FormData();
+                formData.append('token', new URLSearchParams(window.location.search).get('access_token'));
+                formData.append('password', 'document.getElementById("password").value');
+
                 fetch("https://spotily-server-twika.ondigitalocean.app/resetPassword",{
                     method : 'post',
-                    body : {
-                        'token' :  new URLSearchParams(window.location.search).get('access_token'),
-                        'password' : document.getElementById("password").value
-                    }
+                    body : formData,
                 })
                 .then(response => {
                     // indicates whether the response is successful (status code 200-299) or not
