@@ -207,6 +207,7 @@
                     if (!response.ok) {
                     throw new Error(`Request failed with status ${reponse.status}`)
                     }
+                    console.log(response.body);
                     return response.json()
                 })
                 .then(data => {
