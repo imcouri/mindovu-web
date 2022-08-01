@@ -200,6 +200,8 @@
                 formData.append('token', new URLSearchParams(window.location.search).get('access_token'));
                 formData.append('password', document.getElementById("password").value);
 
+                console.log(formData);
+
                 fetch("https://spotily-server-twika.ondigitalocean.app/resetPassword",{
                     method : 'post',
                     body : formData,
