@@ -158,6 +158,7 @@
             function onPageLoaded(){
                
                 var queryString = window.location.search.replace('#','?');
+                console.log(queryString);
                 var urlParams = new URLSearchParams(queryString);
                 var error = urlParams.get('error_description');
                 var access_token = urlParams.get('access_token');
@@ -203,7 +204,7 @@
             function resetPassword(){
 
                 let formData = new FormData();
-                formData.append('token', new URLSearchParams(window.location.search).get('access_token'));
+                formData.append('token', token);
                 formData.append('password', document.getElementById("password").value);
 
                 console.log(formData);
