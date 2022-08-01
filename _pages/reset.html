@@ -185,7 +185,7 @@
             
 
             function onMeloPalError(error){
-                window.location.replace('reset.html?access_token='+  new URLSearchParams(window.location.search).get('access_token') +'&error_description=' + error);
+                window.location.replace('https://melopal.com/reset?access_token='+  new URLSearchParams(window.location.search).get('access_token') +'&error_description=' + error);
             }
 
             function onResetPressed(){
@@ -225,6 +225,8 @@
                 })
                 .then(data => {
                     console.log(data);
+                    console.log(data['description']);
+                    window.location.replace('https://melopal.com/reset?success='+data['']
                 })
                 .catch(error => console.log(error))
             }
