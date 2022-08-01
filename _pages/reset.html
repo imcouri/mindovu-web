@@ -150,6 +150,9 @@
                 display: none;
             }
 
+            #success-box{
+                display: none;
+            }
 
         </style>
         <script>
@@ -163,10 +166,15 @@
                 var queryString = window.location.search;
                 var urlParams = new URLSearchParams(queryString);
                 var error = urlParams.get('error_description');
+                var success = urlParams.get('success');
                 var access_token = urlParams.get('access_token');
                 if(error != null){
                     document.getElementById("error-box").style.display = "block";
                     document.getElementById("error-box").innerHTML = error;
+                }
+                if(success != null){
+                    document.getElementById("success-box").style.display = "block";
+                    document.getElementById("success-box").innerHTML = success;
                 }
                 if(access_token != null){
                     token = access_token
@@ -226,7 +234,7 @@
                 .then(data => {
                     console.log(data);
                     console.log(data['description']);
-                    window.location.replace('https://melopal.com/reset?success='+data['']
+                    window.location.replace('https://melopal.com/reset?success='+data['description']);
                 })
                 .catch(error => console.log(error))
             }
@@ -244,6 +252,7 @@
     <body onload="onPageLoaded()">
         <div class="melo-container">
             <div id="error-box" class="alert alert-danger" role="alert"></div>
+            <div id="success-box" class="alert alert-success" role="alert"></div>
             <div class="card">
                   <h1 class="card-title">Reset your password</h1>
                   <small class="card-subtitle">Enter your new password + confirmation to conitnue</small>
