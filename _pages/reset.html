@@ -157,7 +157,7 @@
                
                 var queryString = window.location.search;
                 var urlParams = new URLSearchParams(queryString);
-                var error = urlParams.get('error')
+                var error = urlParams.get('error_description')
                 if(error != null){
                     document.getElementById("error-box").style.display = "block";
                     document.getElementById("error-box").innerHTML = error;
@@ -176,7 +176,7 @@
             
 
             function onMeloPalError(error){
-                window.location.replace('reset.html?access_token='+  new URLSearchParams(window.location.search).get('access_token') +'&error=' + error);
+                window.location.replace('reset.html?access_token='+  new URLSearchParams(window.location.search).get('access_token') +'&error_description=' + error);
             }
 
             function onResetPressed(){
@@ -198,7 +198,7 @@
 
                 let formData = new FormData();
                 formData.append('token', new URLSearchParams(window.location.search).get('access_token'));
-                formData.append('password', 'document.getElementById("password").value');
+                formData.append('password', document.getElementById("password").value);
 
                 fetch("https://spotily-server-twika.ondigitalocean.app/resetPassword",{
                     method : 'post',
