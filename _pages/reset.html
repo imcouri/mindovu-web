@@ -158,7 +158,7 @@
 
             function onPageLoaded(){
                 if(window.location.toString().includes('#')){
-                    window.location = window.location.toString().replace('#',);
+                    window.location = window.location.toString().replace('#','?');
                 }
                 var queryString = window.location.search;
                 var urlParams = new URLSearchParams(queryString);
