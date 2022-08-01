@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
 
@@ -156,9 +157,10 @@
             var token = '';
 
             function onPageLoaded(){
-               
-                var queryString = window.location.search.toString().replace('#','?');
-                console.log(queryString);
+                if(window.location.toString().includes('#')){
+                    window.location = window.location.toString().replace('#',);
+                }
+                var queryString = window.location.search;
                 var urlParams = new URLSearchParams(queryString);
                 var error = urlParams.get('error_description');
                 var access_token = urlParams.get('access_token');
