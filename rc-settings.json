@@ -9,6 +9,10 @@
       "current_version" : "1.0.0",
       "staging" : "2.0.0",
       "LAAV" : "1.0.0"
+    },
+    "stores" : {
+      "ios" : "https://twotim.com",
+      "android" : "https://melopal.com"
     }
   }
 }
