@@ -2,7 +2,7 @@
   "status": "200",
   "version": 1,
   "current_version": "1.0.0",
-  "app_status": false,
+  "app_status": true,
   "settings": {
     "adStatus": false,
     "adProbability": 0.5
