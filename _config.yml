@@ -35,17 +35,17 @@ youtube_username                          :
 # Feature List                            Edit, add or remove features to be presented.
 features                                  :
 
-  - title                                 : Don't listen alone!
-    description                           : Here you can chat with people who are listening to the same songs as you. It's like having a private concert with your friends or meeting strangers who love the same song as you.
-    fontawesome_icon_name                 : comment-dots
+  - title                                 : Calm down
+    description                           : Take advantage of breathing exercises designed to help you take control of your breathing and achieve the highest levels of mindfulness in just a few minutes.
+    fontawesome_icon_name                 : list
     
-  - title                                 : Playlist generator
-    description                           : MeloPal comes with AI-powered music discovery features that help you create personalized playlists based on your interests. It is a fun and easy way to find new songs, create playlists and share them with friends.
+  - title                                 : Listen & Relax
+    description                           : Ambient audio tracks designed to soothe the listeners and make you experience true relaxation.
     fontawesome_icon_name                 : music
 
-  - title                                 : Get to know YOU
-    description                           : See reports of your top artists, songs and genres in the app. MeloPal also compiles monthly playlists for you based on your music preferences and lets you easily share your findings with friends.
-    fontawesome_icon_name                 : chart-line
+  - title                                 : Journal
+    description                           : Journaling features that are designed to give you an outlet for expressing yourself and getting in touch with what's happening in your mind.
+    fontawesome_icon_name                 : notebook
 
 
 
