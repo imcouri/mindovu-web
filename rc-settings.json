@@ -6,7 +6,7 @@
     "adStatus": false,
     "adProbability": 0.5,
     "version" : {
-      "current_version" : "1.0.0",
+      "current_version" : "1.0.1",
       "staging" : "2.0.0",
       "LAAV" : "1.0.1"
     },
